@@ -22,7 +22,7 @@ select 'Total good Records:',count(*) from cyclecrash.cyclecrash_newgoodrecords;
 select 'Missing Records in new file:';
 select n.* from cyclecrash.cyclecrash_newGoodRecords n left join cyclecrash.cyclecrash_oldGoodRecords g on n.COLLISION_ID=g.COLLISION_ID where g.COLLISION_ID is null ;
 
-select 'missing Records in old file :';
+select 'missing Records in old file :';;
 select g.* from cyclecrash.cyclecrash_newGoodRecords n right join cyclecrash.cyclecrash_oldGoodRecords g on n.COLLISION_ID=g.COLLISION_ID where n.COLLISION_ID is null ;
 select o.* from cyclecrash.cyclecrash_newGoodRecords n join cyclecrash.cyclecrash_oldGoodRecords o on n.COLLISION_ID=o.COLLISION_ID where
  md5(n.crash_date::text||n.crash_time::text||n.borough||n.zipcode)!= md5(o.crash_date::text||o.crash_time::text||o.borough||o.zipcode);
